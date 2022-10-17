@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weighted Course Grade Calculator</title>
+    <meta name="viewport" content="width=device-width" />
+  </head>
+
+  <style>
+    h2 {
+      font-weight: normal;
+      font-size: small;
+    }
+
+    label {
+      margin-right: 70px;
+    }
+    
+  </style>
+
+  <body>
+    <h1>Weighted Course Grade Calculator</h1>
+    <h2>
+      In any unused categories enter N/A and a weight of 0, don't include %
+      symbol when inputing weight or avg grade
+    </h2>
+
+    <label>Grade Category</label>
+    <label>Category Weight</label>
+    <label>Avg Grade in Category</label>
+    
+    <br/>
+    <input type="text" id ="gradeCategory1" required placeholder="Ex Tests"/> 
+    <input type="text" id ="gradeWeight1" required placeholder="Ex 50%"/>
+    <input type="text" id ="grade1" required placeholder="Ex 85%"  /> <br/>
+
+    <input type="text" id ="gradeCategory2" required placeholder="Ex Homeworks"/> 
+    <input type="text" id ="gradeWeight2" required placeholder="Ex 10%"/> 
+    <input type="text" id ="grade2" required placeholder="Ex 95%"/> <br/>
+
+    <input type="text" id ="gradeCategory3" required placeholder="Ex Attendance"/> 
+    <input type="text" id ="gradeWeight3" required placeholder="Ex 5%"/> 
+    <input type="text" id ="grade3" required placeholder="Ex 100%"/> <br/>
+
+    <input type="text" id ="gradeCategory4" required placeholder="Ex Midterm"/> 
+    <input type="text" id ="gradeWeight4" required placeholder="Ex 15%"/> 
+    <input type="text" id ="grade4" required placeholder="Ex 80%"/> <br/>
+
+    <input type="text" id ="gradeCategory5" required placeholder="Ex Final"/> 
+    <input type="text" id ="gradeWeight5" required placeholder="Ex 20%"/> 
+    <input type="text" id ="grade5" required placeholder="Ex 75%"/> <br/>
+    
+      <button onclick="calculateGrade();">Submit</button>
+
+      <input type="text" id="calculatedGrade" />
+    </form>
+
+    <script>
+      function calculateGrade() 
+      {
+        var gradeWeight1 = parseFloat(document.getElementById("gradeWeight1").value);
+        var grade1 = parseFloat(document.getElementById("grade1").value);
+        var gradeWeight2 = parseFloat(document.getElementById("gradeWeight2").value);
+        var grade2 = parseFloat(document.getElementById("grade2").value);
+        var gradeWeight3 = parseFloat(document.getElementById("gradeWeight3").value);
+        var grade3 = parseFloat(document.getElementById("grade3").value);
+        var gradeWeight4 = parseFloat(document.getElementById("gradeWeight4").value);
+        var grade4 = parseFloat(document.getElementById("grade4").value);
+        var gradeWeight5 = parseFloat(document.getElementById("gradeWeight5").value);
+        var grade5 = parseFloat(document.getElementById("grade5").value);
+
+        var courseGrade = ((gradeWeight1/100)*grade1) + ( (gradeWeight2/100)*grade2) +
+                ( (gradeWeight3/100)*grade3) + ( (gradeWeight4/100)*grade4) + 
+                ((gradeWeight5/100)*grade5);
+        print(courseGrade);
+        document.getElementById("calculatedGrade").value = courseGrade;
+      }
+    </script>
+  </body>
+</html>
